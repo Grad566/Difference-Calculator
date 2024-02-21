@@ -2,18 +2,16 @@ package hexlet.code;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import java.util.Map;
-import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
 public class Differ {
-    public static void generate(String str, String str2) throws Exception{
+    public static void generate(String str, String str2) throws Exception {
         ObjectMapper mapper = new ObjectMapper();
         var content1 = Utils.getContentOfFile(str);
         var content2 = Utils.getContentOfFile(str2);
-        var contentAsMap1 = mapper.readValue(content1, new TypeReference<TreeMap<String,Object>>(){});
-        var contentAsMap2 = mapper.readValue(content2, new TypeReference<TreeMap<String,Object>>(){});
+        var contentAsMap1 = mapper.readValue(content1, new TypeReference<TreeMap<String, Object>>() { });
+        var contentAsMap2 = mapper.readValue(content2, new TypeReference<TreeMap<String, Object>>() { });
 
         var keys = new TreeSet<String>(contentAsMap1.keySet());
         keys.addAll(contentAsMap2.keySet());

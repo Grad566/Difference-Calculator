@@ -4,8 +4,6 @@ import picocli.CommandLine;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
 import picocli.CommandLine.Parameters;
-
-import java.util.Scanner;
 import java.util.concurrent.Callable;
 
 @Command(name = "gendiff", mixinStandardHelpOptions = true,
@@ -18,7 +16,7 @@ public class App implements Callable<Integer> {
     @Option(names = {"-f", "--format"}, paramLabel = "format", description = "output format [default: stylish]")
     private String format;
     String value;
-    public static void main (String[] args) {
+    public static void main(String[] args) {
         new CommandLine(new App()).execute(args);
     }
 
