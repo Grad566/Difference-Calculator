@@ -1,6 +1,8 @@
 ### Hexlet tests and linter status:
 [![Actions Status](https://github.com/Grad566/java-project-71/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/Grad566/java-project-71/actions)
 
+[![Maintainability](https://api.codeclimate.com/v1/badges/53a9a04c250683a0ae35/maintainability)](https://codeclimate.com/github/Grad566/java-project-71/maintainability)
+
 [![Action Status](https://github.com/Grad566/java-project-71/blob/main/app/.github/workflows/myTets.yml/badge.svg)](https://github.com/Grad566/java-project-71/blob/main/app/.github/workflows/myTets.yml)
 
 Аскинема разницы
