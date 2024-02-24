@@ -13,4 +13,4 @@ jobs:
           java-version: '21'
           distribution: 'temurin'
           architecture: x64
-
+      - run: make build
