@@ -3,4 +3,7 @@ run-dist: #executable launch
 build:
 	./gradlew build
 
+report:
+	./gradlew jacocoTestReport
+
 .PHONY: build
