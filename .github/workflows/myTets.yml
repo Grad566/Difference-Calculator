@@ -17,5 +17,5 @@ jobs:
         with:
           gradle-version: 8.5
           build-root-directory: app
-      - run: ./gradlew build
+      - run: make build
         working-directory: /app
