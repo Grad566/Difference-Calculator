@@ -24,6 +24,7 @@ dependencies {
 
 test {
     useJUnitPlatform()
+    finalizedBy jacocoTestReport
 }
 
 application {
@@ -34,4 +35,6 @@ compileJava {
     options.compilerArgs += ["-Aproject=${project.group}/${project.name}"]
 }
 
-
+jacocoTestReport {
+    dependsOn test // tests are required to run before generating the report
+}
