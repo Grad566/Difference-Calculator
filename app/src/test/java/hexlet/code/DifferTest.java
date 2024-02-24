@@ -5,6 +5,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+
+import static hexlet.code.Differ.generate;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class DifferTest {
@@ -35,7 +37,7 @@ class DifferTest {
                 + " + verbose: true\n"
                 + "}\n";
 
-        Differ.generate(str1, str2);
+        generate(str1, str2);
 
         assertEquals(expected, output.toString());
     }
