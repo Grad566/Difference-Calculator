@@ -4,6 +4,6 @@ build:
 	./gradlew build
 
 report:
-	.app/gradlew jacocoTestReport
+	./gradlew jacocoTestReport
 
 .PHONY: build
