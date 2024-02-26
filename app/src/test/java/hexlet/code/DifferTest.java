@@ -25,9 +25,10 @@ class DifferTest {
         System.setOut(old);
     }
     @Test
-    public void right1() throws Exception {
+    public void rightJSON() throws Exception {
         var str1 = "src/test/resources/file1.json";
         var str2 = "src/test/resources/file2.json";
+        var format = "json";
         var expected = "{\n"
                 + " - follow: false\n"
                 + "   host: hexlet.io\n"
@@ -37,7 +38,26 @@ class DifferTest {
                 + " + verbose: true\n"
                 + "}\n";
 
-        generate(str1, str2);
+        generate(str1, str2, format);
+
+        assertEquals(expected, output.toString());
+    }
+
+    @Test
+    public void rightYAML() throws Exception {
+        var str1 = "src/test/resources/file5.yml";
+        var str2 = "src/test/resources/file6.yml";
+        var format = "yml";
+        var expected = "{\n"
+                + " - follow: false\n"
+                + "   host: hexlet.io\n"
+                + " - proxy: 123.234.53.22\n"
+                + " - timeout: 50\n"
+                + " + timeout: 20\n"
+                + " + verbose: true\n"
+                + "}\n";
+
+        generate(str1, str2, format);
 
         assertEquals(expected, output.toString());
     }
