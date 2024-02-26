@@ -5,5 +5,7 @@
 
 [![myTest](https://github.com/Grad566/java-project-71/actions/workflows/myTets.yml/badge.svg)](https://github.com/Grad566/java-project-71/actions/workflows/myTets.yml)
 
+<a href="https://codeclimate.com/github/Grad566/java-project-71/test_coverage"><img src="https://api.codeclimate.com/v1/badges/53a9a04c250683a0ae35/test_coverage" /></a>
+
 Аскинема разницы
 https://asciinema.org/a/luxj9TUBhGnruBZnpyA2Nl8N7
