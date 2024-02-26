@@ -2,13 +2,22 @@ package hexlet.code;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.dataformat.yaml.YAMLMapper;
+
 import java.util.TreeMap;
 import java.util.TreeSet;
 
 
 public class Differ {
-    public static void generate(String str, String str2) throws Exception {
-        ObjectMapper mapper = new ObjectMapper();
+    public static void generate(String str, String str2, String format) throws Exception {
+        ObjectMapper mapper;
+
+        if (format.equals("json")) {
+            mapper = new ObjectMapper();
+        } else {
+            mapper = new YAMLMapper();
+        }
+
         var content1 = Utils.getContentOfFile(str);
         var content2 = Utils.getContentOfFile(str2);
         var contentAsMap1 = mapper.readValue(content1, new TypeReference<TreeMap<String, Object>>() { });
