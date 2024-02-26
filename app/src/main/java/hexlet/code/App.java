@@ -22,7 +22,9 @@ public class App implements Callable<Integer> {
 
     @Override
     public Integer call() throws Exception {
-        Differ.generate(path1, path2);
+        String[] pathAsArray = path1.split("\\.");
+        var format = pathAsArray[1];
+        Differ.generate(path1, path2, format);
         return null;
     }
 }
