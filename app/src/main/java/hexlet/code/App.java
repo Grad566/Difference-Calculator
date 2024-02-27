@@ -13,7 +13,10 @@ public class App implements Callable<Integer> {
     private String path1;
     @Parameters(paramLabel = "filepath2", description = "path to first file")
     private String path2;
-    @Option(names = {"-f", "--format"}, paramLabel = "format", description = "output format [default: stylish]")
+    @Option(names = {"-f", "--format"},
+            defaultValue = "stylish",
+            paramLabel = "format",
+            description = "output format [default: stylish]")
     private String format;
     String value;
     public static void main(String[] args) {
@@ -22,9 +25,7 @@ public class App implements Callable<Integer> {
 
     @Override
     public Integer call() throws Exception {
-        String[] pathAsArray = path1.split("\\.");
-        var formatOfFile = pathAsArray[1];
-        Differ.generate(path1, path2, formatOfFile);
+        Differ.generate(path1, path2, format);
         return null;
     }
 }
