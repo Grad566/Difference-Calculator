@@ -11,3 +11,5 @@
 https://asciinema.org/a/luxj9TUBhGnruBZnpyA2Nl8N7
 
 Добавить аскинему для yml шаг 6
+
+Добавить аскинему со стилем шаг 8
