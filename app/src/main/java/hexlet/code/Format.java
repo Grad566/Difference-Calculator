@@ -1,6 +1,5 @@
 package hexlet.code;
 
-import hexlet.code.Utils;
 import hexlet.code.formatters.Plain;
 import hexlet.code.formatters.Stylish;
 
