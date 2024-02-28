@@ -7,6 +7,7 @@ import com.fasterxml.jackson.dataformat.yaml.YAMLMapper;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Objects;
 import java.util.TreeMap;
 
 public class Utils {
@@ -28,5 +29,19 @@ public class Utils {
         }
 
         return mapper.readValue(content, new TypeReference<TreeMap<String, Object>>() { });
+    }
+
+    public static Object replaceWithComplexValue(Object obj) {
+        if (obj == null || obj.equals("null")) {
+            return null;
+        } else if (obj instanceof String) {
+            return  "'" + obj + "'";
+        } else if (obj instanceof Integer
+                || obj instanceof Boolean
+                || obj instanceof Character) {
+            return obj;
+        } else {
+            return  "[complex value]";
+        }
     }
 }
