@@ -8,10 +8,13 @@
 <a href="https://codeclimate.com/github/Grad566/java-project-71/test_coverage"><img src="https://api.codeclimate.com/v1/badges/53a9a04c250683a0ae35/test_coverage" /></a>
 
 Аскинема разницы
-https://asciinema.org/a/luxj9TUBhGnruBZnpyA2Nl8N7
+https://asciinema.org/a/W4OJSu7EHlJ6sLVWzcWrwVcUu
 
-Добавить аскинему для yml шаг 6
+Аскинема для формата yaml
+https://asciinema.org/a/abmodcoA7aN048TjIAFWnsMMj
 
-Добавить аскинему со стилем шаг 8
+Аскинема для формата вывода plain
+https://asciinema.org/a/CaIXyCr0jxPc3GFJprYP3SxWg
 
-Добавить аскинему шаг 9
+Аскинема для формата вывода json
+https://asciinema.org/a/Wd1y3vQ4RmoRt0BujvBPq7r26
