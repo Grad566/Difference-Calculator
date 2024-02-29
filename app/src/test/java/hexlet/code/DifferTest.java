@@ -5,6 +5,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 import static hexlet.code.Differ.generate;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -118,5 +120,19 @@ class DifferTest {
         generate(str1, str2, format);
 
         assertEquals(expected.trim(), output.toString().trim());
+    }
+
+    @Test
+    public void rightJSONWithJson() throws Exception {
+        var str1 = "src/test/resources/file5.yml";
+        var str2 = "src/test/resources/file6.yml";
+        var format = "json";
+        var path = "src/test/resources/resultForTest.json";
+        var absolutePath = Paths.get(path).toAbsolutePath().normalize();
+        var expected = Files.readString(absolutePath).trim();
+
+        generate(str1, str2, format);
+
+        assertEquals(expected, output.toString().trim());
     }
 }
