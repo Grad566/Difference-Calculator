@@ -7,7 +7,7 @@ import java.util.TreeSet;
 
 
 public class Differ {
-    public static void generate(String path1, String path2, String format) throws Exception {
+    public static String generate(String path1, String path2, String format) throws Exception {
         var contentAsMap1 = Utils.getContentAsTreeMap(path1);
         var contentAsMap2 = Utils.getContentAsTreeMap(path2);
         var difference = new ArrayList<Map<String, Object>>();
@@ -44,6 +44,9 @@ public class Differ {
             difference.add(infoAboutElement);
         }
 
-        Format.printResult(format, difference);
+        var result = Format.printResult(format, difference);
+
+        System.out.println(result);
+        return result;
     }
 }

@@ -9,14 +9,18 @@ import java.util.List;
 import java.util.Map;
 
 public class Format {
-    public static void printResult(String format, List<Map<String, Object>> difference)
+    public static String printResult(String format, List<Map<String, Object>> difference)
             throws JsonProcessingException {
+        String result;
+
         if (format.equals("stylish")) {
-            Stylish.printAsStylish(difference);
+            result = Stylish.printAsStylish(difference);
         } else if (format.equals("plain")) {
-            Plain.printAsPlain(difference);
+            result = Plain.printAsPlain(difference);
         } else {
-            Json.printAsJson(difference);
+            result = Json.printAsJson(difference);
         }
+
+        return result;
     }
 }

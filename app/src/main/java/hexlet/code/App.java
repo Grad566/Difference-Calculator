@@ -18,6 +18,7 @@ public class App implements Callable<Integer> {
             paramLabel = "format",
             description = "output format [default: stylish]")
     private String format;
+
     String value;
     public static void main(String[] args) {
         new CommandLine(new App()).execute(args);

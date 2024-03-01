@@ -4,20 +4,45 @@ import java.util.List;
 import java.util.Map;
 
 public class Stylish {
-    public static void printAsStylish(List<Map<String, Object>> result) {
-        System.out.println("{");
+    public static String printAsStylish(List<Map<String, Object>> result) {
+        StringBuilder sb = new StringBuilder();
+        sb.append("{\n");
+
         result.forEach(element -> {
             if (element.get("status").equals("added")) {
-                System.out.println("  + " + element.get("key") + ": " + element.get("value"));
+                sb.append("  + ")
+                        .append(element.get("key"))
+                        .append(": ")
+                        .append(element.get("value"))
+                        .append("\n");
             } else if (element.get("status").equals("removed")) {
-                System.out.println("  - " + element.get("key") + ": " + element.get("value"));
+                sb.append("  - ")
+                        .append(element.get("key"))
+                        .append(": ")
+                        .append(element.get("value"))
+                        .append("\n");
             } else if (element.get("status").equals("unchanged")) {
-                System.out.println("    " + element.get("key") + ": " + element.get("value"));
+                sb.append("    ")
+                        .append(element.get("key"))
+                        .append(": ")
+                        .append(element.get("value"))
+                        .append("\n");
             } else {
-                System.out.println("  - " + element.get("key") + ": " + element.get("oldValue"));
-                System.out.println("  + " + element.get("key") + ": " + element.get("newValue"));
+                sb.append("  - ")
+                        .append(element.get("key"))
+                        .append(": ")
+                        .append(element.get("oldValue"))
+                        .append("\n");
+                sb.append("  + ")
+                        .append(element.get("key"))
+                        .append(": ")
+                        .append(element.get("newValue"))
+                        .append("\n");
             }
         });
-        System.out.println("}");
+
+        sb.append("}");
+
+        return sb.toString().trim();
     }
 }
