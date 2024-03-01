@@ -49,4 +49,8 @@ public class Differ {
         System.out.println(result);
         return result;
     }
+
+    public static String generate(String path1, String path2) throws Exception {
+        return generate(path1, path2, "stylish");
+    }
 }
