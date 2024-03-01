@@ -12,7 +12,7 @@ import static hexlet.code.Differ.generate;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class DifferTest {
-    protected ByteArrayOutputStream output;
+    private ByteArrayOutputStream output;
     private PrintStream old;
 
     @BeforeEach
