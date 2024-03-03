@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Map;
 
 public class Json {
+    // returns json format as string
     public static String printAsJson(List<Map<String, Object>> result) throws JsonProcessingException {
         ObjectMapper objectMapper = new ObjectMapper();
         return objectMapper.writeValueAsString(result);

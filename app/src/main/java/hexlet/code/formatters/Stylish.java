@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 public class Stylish {
+    // returns stylish format as string
     public static String printAsStylish(List<Map<String, Object>> result) {
         StringBuilder sb = new StringBuilder();
         sb.append("{\n");

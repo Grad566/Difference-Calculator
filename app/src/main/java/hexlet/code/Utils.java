@@ -10,11 +10,13 @@ import java.nio.file.Paths;
 import java.util.TreeMap;
 
 public class Utils {
+    // get content of file as string
     public static String getContentOfFile(String str) throws Exception {
         Path path = Paths.get(str).toAbsolutePath().normalize();
         return Files.readString(path).trim();
     }
 
+    // transform a string to TreeMap
     public static TreeMap<String, Object> getContentAsTreeMap(String path) throws Exception {
         String[] pathAsArray = path.split("\\.");
         var formatOfFile = pathAsArray[1];
@@ -30,6 +32,7 @@ public class Utils {
         return mapper.readValue(content, new TypeReference<TreeMap<String, Object>>() { });
     }
 
+    // replace nested values with 'complex value'
     public static Object replaceWithComplexValue(Object obj) {
         if (obj == null || obj.equals("null")) {
             return null;

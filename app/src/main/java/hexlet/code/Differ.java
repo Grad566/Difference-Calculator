@@ -7,6 +7,7 @@ import java.util.TreeSet;
 
 
 public class Differ {
+    // creates a difference in the form of a sorted list that contains maps
     public static String generate(String path1, String path2, String format) throws Exception {
         var contentAsMap1 = Utils.getContentAsTreeMap(path1);
         var contentAsMap2 = Utils.getContentAsTreeMap(path2);

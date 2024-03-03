@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 public class Plain {
+    // returns plain format as string
     public static String printAsPlain(List<Map<String, Object>> result) {
         StringBuilder plainFormat = new StringBuilder();
 

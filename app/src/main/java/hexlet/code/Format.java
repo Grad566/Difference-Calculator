@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Map;
 
 public class Format {
+    // transforms the result into the required format
     public static String printResult(String format, List<Map<String, Object>> difference)
             throws JsonProcessingException {
         String result;
