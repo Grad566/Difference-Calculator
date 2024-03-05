@@ -62,7 +62,7 @@ class DifferTest {
     }
 
     @Test
-    public void rightJSON() throws Exception {
+    public void testGenerateStylishWithJsonInput() throws Exception {
         var str1 = "src/test/resources/file1.json";
         var str2 = "src/test/resources/file2.json";
         var format = "stylish";
@@ -74,7 +74,7 @@ class DifferTest {
     }
 
     @Test
-    public void rightYAML() throws Exception {
+    public void testGenerateStylishWithYamlInput() throws Exception {
         var str1 = "src/test/resources/file5.yml";
         var str2 = "src/test/resources/file6.yml";
         var format = "stylish";
@@ -86,7 +86,7 @@ class DifferTest {
     }
 
     @Test
-    public void rightYAMLWithPlain() throws Exception {
+    public void testGeneratePlainWithYamlInput() throws Exception {
         var str1 = "src/test/resources/file5.yml";
         var str2 = "src/test/resources/file6.yml";
         var format = "plain";
@@ -98,13 +98,59 @@ class DifferTest {
     }
 
     @Test
-    public void rightJSONWithJson() throws Exception {
+    public void testGeneratePlainWithJsonInput() throws Exception {
+        var str1 = "src/test/resources/file1.json";
+        var str2 = "src/test/resources/file2.json";
+        var format = "plain";
+        var expected = plainOutput;
+
+        var actual = generate(str1, str2, format);
+
+        assertEquals(expected, actual.trim());
+    }
+
+    @Test
+    public void testGenerateJsonWithYamlInput() throws Exception {
         var str1 = "src/test/resources/file5.yml";
         var str2 = "src/test/resources/file6.yml";
         var format = "json";
         var expected = jsonOutput;
 
         var actual = generate(str1, str2, format);
+
+        assertEquals(expected, actual.trim());
+    }
+
+    @Test
+    public void testGenerateJsonWithJsonInput() throws Exception {
+        var str1 = "src/test/resources/file5.yml";
+        var str2 = "src/test/resources/file6.yml";
+        var format = "json";
+        var expected = jsonOutput;
+
+        var actual = generate(str1, str2, format);
+
+        assertEquals(expected.trim(), actual.trim());
+    }
+
+    @Test
+    public void testGenerateDefaultWithYamlInput() throws Exception {
+        var str1 = "src/test/resources/file5.yml";
+        var str2 = "src/test/resources/file6.yml";
+        var expected = stylishOutput;
+
+        var actual = generate(str1, str2);
+
+        assertEquals(expected, actual.trim());
+    }
+
+    @Test
+    public void testGenerateDefaultWithJsonInput() throws Exception {
+        var str1 = "src/test/resources/file1.json";
+        var str2 = "src/test/resources/file2.json";
+        var expected = stylishOutput;
+
+        var actual = generate(str1, str2);
 
         assertEquals(expected, actual.trim());
     }
