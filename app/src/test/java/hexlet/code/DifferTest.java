@@ -12,20 +12,6 @@ import static hexlet.code.Differ.generate;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class DifferTest {
-    private ByteArrayOutputStream output;
-    private PrintStream old;
-
-    @BeforeEach
-    public void setUpStreams() {
-        old = System.out;
-        output = new ByteArrayOutputStream();
-        System.setOut(new PrintStream(output));
-    }
-
-    @AfterEach
-    public void cleanUpStreams() {
-        System.setOut(old);
-    }
     @Test
     public void rightJSON() throws Exception {
         var str1 = "src/test/resources/file1.json";
@@ -57,9 +43,9 @@ class DifferTest {
                 + "  + setting3: none\n"
                 + "}";
 
-        generate(str1, str2, format);
+        var actual = generate(str1, str2, format);
 
-        assertEquals(expected, output.toString().trim());
+        assertEquals(expected, actual.trim());
     }
 
     @Test
@@ -93,9 +79,9 @@ class DifferTest {
                 + "  + setting3: none\n"
                 + "}";
 
-        generate(str1, str2, format);
+        var actual = generate(str1, str2, format);
 
-        assertEquals(expected, output.toString().trim());
+        assertEquals(expected, actual.trim());
     }
 
     @Test
@@ -117,9 +103,9 @@ class DifferTest {
                 + "Property 'setting2' was updated. From 200 to 300\n"
                 + "Property 'setting3' was updated. From true to 'none'";
 
-        generate(str1, str2, format);
+        var actual = generate(str1, str2, format);
 
-        assertEquals(expected.trim(), output.toString().trim());
+        assertEquals(expected.trim(), actual.trim());
     }
 
     @Test
@@ -131,8 +117,8 @@ class DifferTest {
         var absolutePath = Paths.get(path).toAbsolutePath().normalize();
         var expected = Files.readString(absolutePath).trim();
 
-        generate(str1, str2, format);
+        var actual = generate(str1, str2, format);
 
-        assertEquals(expected, output.toString().trim());
+        assertEquals(expected, actual.trim());
     }
 }
