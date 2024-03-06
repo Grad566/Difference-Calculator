@@ -13,16 +13,11 @@ public class Format {
     public static String printResult(String format, List<Map<String, Object>> difference)
             throws JsonProcessingException {
 
-        String result;
-
-        switch (format) {
-            case "stylish" :
-                result = Stylish.printAsStylish(difference);
-            case "plain":
-                result = Plain.printAsPlain(difference);
-            default:
-                result = Json.printAsJson(difference);
-        }
+        String result = switch (format) {
+            case "stylish" -> Stylish.printAsStylish(difference);
+            case "plain" -> Plain.printAsPlain(difference);
+            default -> Json.printAsJson(difference);
+        };
 
         return result;
     }
