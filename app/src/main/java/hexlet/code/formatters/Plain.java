@@ -18,14 +18,13 @@ public class Plain {
                 element.replace("newValue", Utils.replaceWithComplexValue(element.get("newValue")));
             }
 
-            if (element.get("status").equals("added")) {
-                plainFormat.append(String.format("Property '%s' was added with value: %s%n",
+            switch (element.get("status").toString()) {
+                case "added" -> plainFormat.append(String.format("Property '%s' was added with value: %s%n",
                         element.get("key"),
                         element.get("value")));
-            } else if (element.get("status").equals("removed")) {
-                plainFormat.append(String.format("Property '%s' was removed%n", element.get("key")));
-            } else if (element.get("status").equals("updated")) {
-                plainFormat.append(String.format("Property '%s' was updated. From %s to %s%n",
+                case "removed" -> plainFormat.append(String.format("Property '%s' was removed%n",
+                        element.get("key")));
+                case "updated" -> plainFormat.append(String.format("Property '%s' was updated. From %s to %s%n",
                         element.get("key"),
                         element.get("oldValue"),
                         element.get("newValue")));

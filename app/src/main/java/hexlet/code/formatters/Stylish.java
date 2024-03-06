@@ -10,35 +10,34 @@ public class Stylish {
         sb.append("{\n");
 
         result.forEach(element -> {
-            if (element.get("status").equals("added")) {
-                sb.append("  + ")
+            switch (element.get("status").toString()) {
+                case "added" -> sb.append("  + ")
                         .append(element.get("key"))
                         .append(": ")
                         .append(element.get("value"))
                         .append("\n");
-            } else if (element.get("status").equals("removed")) {
-                sb.append("  - ")
+                case "removed" -> sb.append("  - ")
                         .append(element.get("key"))
                         .append(": ")
                         .append(element.get("value"))
                         .append("\n");
-            } else if (element.get("status").equals("unchanged")) {
-                sb.append("    ")
+                case "unchanged" -> sb.append("    ")
                         .append(element.get("key"))
                         .append(": ")
                         .append(element.get("value"))
                         .append("\n");
-            } else {
-                sb.append("  - ")
-                        .append(element.get("key"))
-                        .append(": ")
-                        .append(element.get("oldValue"))
-                        .append("\n");
-                sb.append("  + ")
+                default -> {
+                    sb.append("  - ")
+                            .append(element.get("key"))
+                            .append(": ")
+                            .append(element.get("oldValue"))
+                            .append("\n");
+                    sb.append("  + ")
                         .append(element.get("key"))
                         .append(": ")
                         .append(element.get("newValue"))
                         .append("\n");
+                }
             }
         });
 
