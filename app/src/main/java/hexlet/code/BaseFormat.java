@@ -8,9 +8,9 @@ import hexlet.code.formatters.Stylish;
 import java.util.List;
 import java.util.Map;
 
-public class Format {
+public class BaseFormat {
     // transforms the result into the required format
-    public static String printResult(String format, List<Map<String, Object>> difference)
+    public static String chooseFormat(String format, List<Map<String, Object>> difference)
             throws JsonProcessingException {
 
         String result = switch (format) {

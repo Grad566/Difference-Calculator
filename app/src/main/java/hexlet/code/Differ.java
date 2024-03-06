@@ -45,7 +45,7 @@ public class Differ {
             difference.add(infoAboutElement);
         }
 
-        var result = Format.printResult(format, difference);
+        var result = BaseFormat.chooseFormat(format, difference);
 
         System.out.println(result);
         return result;
