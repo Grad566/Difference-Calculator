@@ -28,6 +28,7 @@ public class Plain {
                         element.get("key"),
                         element.get("oldValue"),
                         element.get("newValue")));
+                default -> throw new RuntimeException("Unknown status");
             }
         });
 
