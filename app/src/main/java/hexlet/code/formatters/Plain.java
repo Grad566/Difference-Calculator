@@ -12,10 +12,10 @@ public class Plain {
 
         result.forEach(element -> {
             if (element.containsKey("value")) {
-                element.replace("value", element.get("value"), Utils.replaceWithComplexValue(element.get("value")));
+                element.replace("value", element.get("value"), replaceWithComplexValue(element.get("value")));
             } else {
-                element.replace("oldValue", Utils.replaceWithComplexValue(element.get("oldValue")));
-                element.replace("newValue", Utils.replaceWithComplexValue(element.get("newValue")));
+                element.replace("oldValue", replaceWithComplexValue(element.get("oldValue")));
+                element.replace("newValue", replaceWithComplexValue(element.get("newValue")));
             }
 
             switch (element.get("status").toString()) {
@@ -36,5 +36,20 @@ public class Plain {
         });
 
         return plainFormat.toString().trim();
+    }
+
+    // replace nested values with 'complex value'
+    public static Object replaceWithComplexValue(Object obj) {
+        if (obj == null || obj.equals("null")) {
+            return null;
+        } else if (obj instanceof String) {
+            return  "'" + obj + "'";
+        } else if (obj instanceof Integer
+                || obj instanceof Boolean
+                || obj instanceof Character) {
+            return obj;
+        } else {
+            return  "[complex value]";
+        }
     }
 }

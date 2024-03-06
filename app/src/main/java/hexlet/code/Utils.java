@@ -31,19 +31,4 @@ public class Utils {
 
         return mapper.readValue(content, new TypeReference<TreeMap<String, Object>>() { });
     }
-
-    // replace nested values with 'complex value'
-    public static Object replaceWithComplexValue(Object obj) {
-        if (obj == null || obj.equals("null")) {
-            return null;
-        } else if (obj instanceof String) {
-            return  "'" + obj + "'";
-        } else if (obj instanceof Integer
-                || obj instanceof Boolean
-                || obj instanceof Character) {
-            return obj;
-        } else {
-            return  "[complex value]";
-        }
-    }
 }
