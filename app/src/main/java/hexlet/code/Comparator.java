@@ -11,15 +11,15 @@ public class Comparator {
     public static List<Map<String, Object>> generateDifference(TreeMap<String, Object> map1,
                                                                TreeMap<String, Object> map2) {
         var difference = new ArrayList<Map<String, Object>>();
+
+        replaceNullWithString(map1);
+        replaceNullWithString(map2);
+
         var keys = new TreeSet<String>(map1.keySet());
         keys.addAll(map2.keySet());
 
         for (var key : keys) {
             var infoAboutElement = new HashMap<String, Object>();
-
-            if (map1.get(key) == null) {
-                map1.replace(key, null, "null");
-            }
 
             if (!map1.containsKey(key)) {
                 infoAboutElement.put("status", "added");
@@ -43,5 +43,9 @@ public class Comparator {
             difference.add(infoAboutElement);
         }
         return difference;
+    }
+
+    public static void replaceNullWithString(TreeMap<String, Object> map) {
+        map.replaceAll((key, value) -> value == null ? "null" : value);
     }
 }
