@@ -16,7 +16,8 @@ public class BaseFormat {
         String result = switch (format) {
             case "stylish" -> Stylish.printAsStylish(difference);
             case "plain" -> Plain.printAsPlain(difference);
-            default -> Json.printAsJson(difference);
+            case "json" -> Json.printAsJson(difference);
+            default -> throw new RuntimeException("Unknown format of output");
         };
 
         return result;
