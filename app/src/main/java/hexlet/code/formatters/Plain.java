@@ -40,14 +40,13 @@ public class Plain {
     public static Object replaceWithComplexValue(Object obj) {
         if (obj == null || obj.equals("null")) {
             return null;
+        } else if (obj instanceof List
+                || obj instanceof Map) {
+            return  "[complex value]";
         } else if (obj instanceof String) {
             return  "'" + obj + "'";
-        } else if (obj instanceof Integer
-                || obj instanceof Boolean
-                || obj instanceof Character) {
-            return obj;
         } else {
-            return  "[complex value]";
+            return obj;
         }
     }
 }
