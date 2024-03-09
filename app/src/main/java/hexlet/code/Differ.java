@@ -37,6 +37,6 @@ public class Differ {
     // get format of input
     public static String getFormatOfInput(String path) {
         String[] pathAsArray = path.split("\\.");
-        return pathAsArray[1];
+        return pathAsArray[pathAsArray.length - 1];
     }
 }
