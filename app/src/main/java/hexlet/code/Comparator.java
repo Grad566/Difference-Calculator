@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.HashMap;
 
-public class DifferBetweenMap {
+public class Comparator {
     public static List<Map<String, Object>> generateDifference(TreeMap<String, Object> map1,
                                                                TreeMap<String, Object> map2) {
         var difference = new ArrayList<Map<String, Object>>();
