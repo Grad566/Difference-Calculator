@@ -9,13 +9,11 @@ public class FromFile {
 
     // transform a string to TreeMap
     public static TreeMap<String, Object> getContentAsTreeMap(String content, String input) throws Exception {
-        ObjectMapper mapper;
-
-        if (input.equals("json")) {
-            mapper = new ObjectMapper();
-        } else {
-            mapper = new YAMLMapper();
-        }
+        ObjectMapper mapper = switch (input) {
+            case "json" -> new ObjectMapper();
+            case "yml" -> new YAMLMapper();
+            default -> throw new RuntimeException("Unknown format of file input");
+        };
 
         return mapper.readValue(content, new TypeReference<TreeMap<String, Object>>() { });
     }
