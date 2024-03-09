@@ -9,23 +9,16 @@ public class Plain {
         StringBuilder plainFormat = new StringBuilder();
 
         result.forEach(element -> {
-            if (element.containsKey("value")) {
-                element.replace("value", element.get("value"), replaceWithComplexValue(element.get("value")));
-            } else {
-                element.replace("oldValue", replaceWithComplexValue(element.get("oldValue")));
-                element.replace("newValue", replaceWithComplexValue(element.get("newValue")));
-            }
-
             switch (element.get("status").toString()) {
                 case "added" -> plainFormat.append(String.format("Property '%s' was added with value: %s%n",
                         element.get("key"),
-                        element.get("value")));
+                        replaceWithComplexValue(element.get("value"))));
                 case "removed" -> plainFormat.append(String.format("Property '%s' was removed%n",
                         element.get("key")));
                 case "updated" -> plainFormat.append(String.format("Property '%s' was updated. From %s to %s%n",
                         element.get("key"),
-                        element.get("oldValue"),
-                        element.get("newValue")));
+                        replaceWithComplexValue(element.get("oldValue")),
+                        replaceWithComplexValue(element.get("newValue"))));
                 case "unchanged" -> {
                     break;
                 }
