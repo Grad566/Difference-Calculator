@@ -26,7 +26,7 @@ public class Stylish {
                         .append(": ")
                         .append(element.get("value"))
                         .append("\n");
-                default -> {
+                case "updated" -> {
                     sb.append("  - ")
                             .append(element.get("key"))
                             .append(": ")
@@ -38,6 +38,7 @@ public class Stylish {
                         .append(element.get("newValue"))
                         .append("\n");
                 }
+                default -> throw new RuntimeException("Unknown status");
             }
         });
 
