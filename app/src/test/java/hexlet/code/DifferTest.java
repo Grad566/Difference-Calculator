@@ -38,7 +38,7 @@ class DifferTest {
 
         var actual = generate(str1, str2, format);
 
-        assertEquals(expected, actual.trim());
+        assertEquals(expected, actual);
     }
 
     @Test
@@ -50,7 +50,7 @@ class DifferTest {
 
         var actual = generate(str1, str2, format);
 
-        assertEquals(expected, actual.trim());
+        assertEquals(expected, actual);
     }
 
     @Test
@@ -62,7 +62,7 @@ class DifferTest {
 
         var actual = generate(str1, str2, format);
 
-        assertEquals(expected.trim(), actual.trim());
+        assertEquals(expected, actual);
     }
 
     @Test
@@ -74,7 +74,7 @@ class DifferTest {
 
         var actual = generate(str1, str2, format);
 
-        assertEquals(expected, actual.trim());
+        assertEquals(expected, actual);
     }
 
     @Test
@@ -86,7 +86,7 @@ class DifferTest {
 
         var actual = generate(str1, str2, format);
 
-        assertEquals(expected, actual.trim());
+        assertEquals(expected, actual);
     }
 
     @Test
@@ -98,7 +98,7 @@ class DifferTest {
 
         var actual = generate(str1, str2, format);
 
-        assertEquals(expected.trim(), actual.trim());
+        assertEquals(expected, actual);
     }
 
     @Test
@@ -109,7 +109,7 @@ class DifferTest {
 
         var actual = generate(str1, str2);
 
-        assertEquals(expected, actual.trim());
+        assertEquals(expected, actual);
     }
 
     @Test
@@ -120,6 +120,6 @@ class DifferTest {
 
         var actual = generate(str1, str2);
 
-        assertEquals(expected, actual.trim());
+        assertEquals(expected, actual);
     }
 }
