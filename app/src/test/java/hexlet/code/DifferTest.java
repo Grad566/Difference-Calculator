@@ -16,17 +16,14 @@ class DifferTest {
     private static String jsonOutput;
     @BeforeAll
     public static void setExpected() throws IOException {
-        var pathForStylishOutput = "src/test/resources/testStylishOutput.txt";
-        var absolutePathForStylish = Paths.get(pathForStylishOutput).toAbsolutePath().normalize();
-        stylishOutput = Files.readString(absolutePathForStylish).trim();
+        stylishOutput = getOutput("src/test/resources/testStylishOutput.txt");
+        plainOutput = getOutput("src/test/resources/testPlainOutput.txt");
+        jsonOutput = getOutput("src/test/resources/resultForTest.json");
+    }
 
-        var pathForPlainOutput = "src/test/resources/testPlainOutput.txt";
-        var absolutePathForPlain = Paths.get(pathForPlainOutput).toAbsolutePath().normalize();
-        plainOutput = Files.readString(absolutePathForPlain).trim();
-
-        var pathForJsonOutput = "src/test/resources/resultForTest.json";
-        var absolutePathForJson = Paths.get(pathForJsonOutput).toAbsolutePath().normalize();
-        jsonOutput = Files.readString(absolutePathForJson).trim();
+    public static String getOutput(String path) throws IOException {
+        var absolutePath = Paths.get(path).toAbsolutePath().normalize();
+        return Files.readString(absolutePath).trim();
     }
 
     @Test
