@@ -3,9 +3,9 @@ package hexlet.code.formatters;
 import java.util.List;
 import java.util.Map;
 
-public class Stylish {
+public class StylishFormatter {
     // returns stylish format as string
-    public static String printAsStylish(List<Map<String, Object>> result) {
+    public static String format(List<Map<String, Object>> result) {
         StringBuilder sb = new StringBuilder();
         sb.append("{\n");
 

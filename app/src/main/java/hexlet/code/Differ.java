@@ -18,7 +18,7 @@ public class Differ {
 
         var difference = Comparator.generateDifference(contentAsMap1, contentAsMap2);
 
-        var result = BaseFormat.chooseFormat(format, difference);
+        var result = BaseFormatter.format(format, difference);
 
         System.out.println(result);
         return result;

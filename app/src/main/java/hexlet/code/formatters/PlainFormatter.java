@@ -3,9 +3,9 @@ package hexlet.code.formatters;
 import java.util.List;
 import java.util.Map;
 
-public class Plain {
+public class PlainFormatter {
     // returns plain format as string
-    public static String printAsPlain(List<Map<String, Object>> result) {
+    public static String format(List<Map<String, Object>> result) {
         StringBuilder plainFormat = new StringBuilder();
 
         result.forEach(element -> {
