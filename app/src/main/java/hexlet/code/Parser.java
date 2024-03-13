@@ -12,7 +12,7 @@ public class Parser {
     public static Map<String, Object> getContentAsTreeMap(String content, String input) throws Exception {
         ObjectMapper mapper = switch (input) {
             case "json" -> new ObjectMapper();
-            case "yml" -> new YAMLMapper();
+            case "yml", "yaml" -> new YAMLMapper();
             default -> throw new RuntimeException("Unknown format of file input");
         };
 
