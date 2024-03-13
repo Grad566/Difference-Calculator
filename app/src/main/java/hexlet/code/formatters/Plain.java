@@ -38,8 +38,9 @@ public class Plain {
             return  "[complex value]";
         } else if (obj instanceof String) {
             return  "'" + obj + "'";
-        } else {
-            return obj;
         }
+
+        return obj;
+
     }
 }
