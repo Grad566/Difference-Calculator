@@ -13,8 +13,8 @@ public class Differ {
         var contentOfFirstFile = getContentOfFile(path1);
         var contentOfSecondFile = getContentOfFile(path2);
 
-        var contentAsMap1 = FromFile.getContentAsTreeMap(contentOfFirstFile, formatOfFirstFileInput);
-        var contentAsMap2 = FromFile.getContentAsTreeMap(contentOfSecondFile, formatOfSecondFileInput);
+        var contentAsMap1 = Parser.getContentAsTreeMap(contentOfFirstFile, formatOfFirstFileInput);
+        var contentAsMap2 = Parser.getContentAsTreeMap(contentOfSecondFile, formatOfSecondFileInput);
 
         var difference = Comparator.generateDifference(contentAsMap1, contentAsMap2);
 

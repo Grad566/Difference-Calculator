@@ -5,7 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.yaml.YAMLMapper;
 import java.util.TreeMap;
 
-public class FromFile {
+public class Parser {
 
     // transform a string to TreeMap
     public static TreeMap<String, Object> getContentAsTreeMap(String content, String input) throws Exception {
