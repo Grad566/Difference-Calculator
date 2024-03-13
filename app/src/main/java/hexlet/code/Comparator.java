@@ -1,18 +1,11 @@
 package hexlet.code;
 
-import java.util.Map;
-import java.util.TreeSet;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.HashMap;
+import java.util.*;
 
 public class Comparator {
     public static List<Map<String, Object>> generateDifference(Map<String, Object> map1,
                                                                Map<String, Object> map2) {
         var difference = new ArrayList<Map<String, Object>>();
-
-        replaceNullWithString(map1);
-        replaceNullWithString(map2);
 
         var keys = new TreeSet<String>(map1.keySet());
         keys.addAll(map2.keySet());
@@ -28,7 +21,7 @@ public class Comparator {
                 infoAboutElement.put("status", "removed");
                 infoAboutElement.put("key", key);
                 infoAboutElement.put("value", map1.get(key));
-            } else if (map1.get(key).equals(map2.get(key))) {
+            } else if (Objects.equals(map1.get(key), map2.get(key))) {
                 infoAboutElement.put("status", "unchanged");
                 infoAboutElement.put("key", key);
                 infoAboutElement.put("value", map1.get(key));
