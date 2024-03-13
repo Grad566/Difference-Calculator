@@ -2,6 +2,8 @@ package hexlet.code;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -26,10 +28,11 @@ class DifferTest {
         return Files.readString(absolutePath).trim();
     }
 
-    @Test
-    public void testGenerateStylishWithJsonInput() throws Exception {
-        var str1 = "src/test/resources/file1.json";
-        var str2 = "src/test/resources/file2.json";
+    @ParameterizedTest
+    @ValueSource(strings = {"json", "yml"})
+    public void testGenerateStylishWithJsonOrYamlInput(String fileExtension) throws Exception {
+        var str1 = "src/test/resources/file1." + fileExtension;
+        var str2 = "src/test/resources/file2." + fileExtension;
         var format = "stylish";
         var expected = stylishOutput;
 
@@ -38,22 +41,11 @@ class DifferTest {
         assertEquals(expected, actual);
     }
 
-    @Test
-    public void testGenerateStylishWithYamlInput() throws Exception {
-        var str1 = "src/test/resources/file5.yml";
-        var str2 = "src/test/resources/file6.yml";
-        var format = "stylish";
-        var expected = stylishOutput;
-
-        var actual = generate(str1, str2, format);
-
-        assertEquals(expected, actual);
-    }
-
-    @Test
-    public void testGeneratePlainWithYamlInput() throws Exception {
-        var str1 = "src/test/resources/file5.yml";
-        var str2 = "src/test/resources/file6.yml";
+    @ParameterizedTest
+    @ValueSource(strings = {"json", "yml"})
+    public void testGeneratePlainWithJsonOrYamlInput(String fileExtension) throws Exception {
+        var str1 = "src/test/resources/file1." + fileExtension;
+        var str2 = "src/test/resources/file2." + fileExtension;
         var format = "plain";
         var expected = plainOutput;
 
@@ -62,22 +54,11 @@ class DifferTest {
         assertEquals(expected, actual);
     }
 
-    @Test
-    public void testGeneratePlainWithJsonInput() throws Exception {
-        var str1 = "src/test/resources/file1.json";
-        var str2 = "src/test/resources/file2.json";
-        var format = "plain";
-        var expected = plainOutput;
-
-        var actual = generate(str1, str2, format);
-
-        assertEquals(expected, actual);
-    }
-
-    @Test
-    public void testGenerateJsonWithYamlInput() throws Exception {
-        var str1 = "src/test/resources/file5.yml";
-        var str2 = "src/test/resources/file6.yml";
+    @ParameterizedTest
+    @ValueSource(strings = {"json", "yml"})
+    public void testGenerateJsonWithJsonOrYamlInput(String fileExtension) throws Exception {
+        var str1 = "src/test/resources/file1." + fileExtension;
+        var str2 = "src/test/resources/file2." + fileExtension;
         var format = "json";
         var expected = jsonOutput;
 
@@ -86,22 +67,11 @@ class DifferTest {
         assertEquals(expected, actual);
     }
 
-    @Test
-    public void testGenerateJsonWithJsonInput() throws Exception {
-        var str1 = "src/test/resources/file5.yml";
-        var str2 = "src/test/resources/file6.yml";
-        var format = "json";
-        var expected = jsonOutput;
-
-        var actual = generate(str1, str2, format);
-
-        assertEquals(expected, actual);
-    }
-
-    @Test
-    public void testGenerateDefaultWithYamlInput() throws Exception {
-        var str1 = "src/test/resources/file5.yml";
-        var str2 = "src/test/resources/file6.yml";
+    @ParameterizedTest
+    @ValueSource(strings = {"json", "yml"})
+    public void testGenerateDefaultWithJsonOrYamlInput(String fileExtension) throws Exception {
+        var str1 = "src/test/resources/file1." + fileExtension;
+        var str2 = "src/test/resources/file2." + fileExtension;
         var expected = stylishOutput;
 
         var actual = generate(str1, str2);
@@ -109,14 +79,4 @@ class DifferTest {
         assertEquals(expected, actual);
     }
 
-    @Test
-    public void testGenerateDefaultWithJsonInput() throws Exception {
-        var str1 = "src/test/resources/file1.json";
-        var str2 = "src/test/resources/file2.json";
-        var expected = stylishOutput;
-
-        var actual = generate(str1, str2);
-
-        assertEquals(expected, actual);
-    }
 }
