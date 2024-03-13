@@ -8,8 +8,8 @@ import java.util.List;
 import java.util.HashMap;
 
 public class Comparator {
-    public static List<Map<String, Object>> generateDifference(TreeMap<String, Object> map1,
-                                                               TreeMap<String, Object> map2) {
+    public static List<Map<String, Object>> generateDifference(Map<String, Object> map1,
+                                                               Map<String, Object> map2) {
         var difference = new ArrayList<Map<String, Object>>();
 
         replaceNullWithString(map1);
@@ -45,7 +45,7 @@ public class Comparator {
         return difference;
     }
 
-    public static void replaceNullWithString(TreeMap<String, Object> map) {
+    public static void replaceNullWithString(Map<String, Object> map) {
         map.replaceAll((key, value) -> value == null ? "null" : value);
     }
 }
