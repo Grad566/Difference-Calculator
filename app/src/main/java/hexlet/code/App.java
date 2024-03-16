@@ -25,7 +25,8 @@ public final class App implements Callable<Integer> {
 
     @Override
     public Integer call() throws Exception {
-        Differ.generate(path1, path2, format);
+        var result = Differ.generate(path1, path2, format);
+        System.out.println(result);
         return null;
     }
 }

@@ -18,10 +18,7 @@ public class Differ {
 
         var difference = Comparator.generateDifference(contentAsMap1, contentAsMap2);
 
-        var result = BaseFormatter.format(format, difference);
-
-        System.out.println(result);
-        return result;
+        return BaseFormatter.format(format, difference);
     }
 
     public static String generate(String path1, String path2) throws Exception {
