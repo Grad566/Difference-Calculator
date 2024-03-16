@@ -9,7 +9,7 @@ import java.util.Map;
 public class Parser {
 
     // transform a string to TreeMap
-    public static Map<String, Object> getContentAsTreeMap(String content, String input) throws Exception {
+    public static Map<String, Object> getContentAsMap(String content, String input) throws Exception {
         ObjectMapper mapper = switch (input) {
             case "json" -> new ObjectMapper();
             case "yml", "yaml" -> new YAMLMapper();

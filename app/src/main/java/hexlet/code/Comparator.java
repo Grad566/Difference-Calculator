@@ -41,8 +41,4 @@ public class Comparator {
         }
         return difference;
     }
-
-    public static void replaceNullWithString(Map<String, Object> map) {
-        map.replaceAll((key, value) -> value == null ? "null" : value);
-    }
 }
