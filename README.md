@@ -38,4 +38,4 @@ make run-dist -f plain file1.yml file2.yml
 make build 
 ```
 
-Тесты и chekStyle через ./gradlew <команада>
+Тесты и checkStyle через ./gradlew <команада>
